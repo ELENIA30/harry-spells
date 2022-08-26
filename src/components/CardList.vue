@@ -2,7 +2,7 @@
   <div class="wrapper">
     <h4>Your Spells</h4>
     <div class="cardswrapper">
-      <CardsH
+      <Cards
         v-for="spell in spellList"
         :key="spell.id"
         :spell="spell"
@@ -12,11 +12,11 @@
 </template>
 
 <script>
-import CardsH from "./CardsH.vue";
+import Cards from "./Cards.vue";
 
 export default {
   name: "CardList",
-  components: { CardsH },
+  components: { Cards },
   props: ["spellList"],
 };
 </script>

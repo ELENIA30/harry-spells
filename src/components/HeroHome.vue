@@ -8,7 +8,7 @@
       <img class="img" src="../assets/harry-hero.jpg" />
     </div>
       <form class="search">
-        <input type="text" v-model="input" placeholder="Spell name..."/>
+        <input type="text" v-model="tipped" placeholder="Spell name..."/>
         <button @click.prevent="getSpells" class="button">Search</button>
       </form>
   </div>
@@ -19,17 +19,16 @@
 
   export default {
     name:"HeroHome",
-    props:["onSubmit"],
     data() {
       return {
-        input: "",
+        tipped: "",
       }
     },
     methods: {
       getSpells() {
         axios.get('https://wizard-world-api.herokuapp.com/Spells')
         .then((spells) => {
-          this.$emit("spellsData", spells.data.filter(item => item.effect.toLowerCase().includes(this.input.toLowerCase())))
+          this.$emit("spellsData", spells.data.filter(item => item.effect.toLowerCase().includes(this.tipped.toLowerCase())))
         })
       },
     },

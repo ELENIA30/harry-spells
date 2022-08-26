@@ -1,6 +1,7 @@
 <template>
   <NavBar scrollTop="scrollTop" />
-  <HeroHome @spellsData="setSpellList" />
+   <!-- emit -->
+  <HeroHome @spellsData="setSpellList" /> 
   <CardList v-if="spellList.length >= 1" :spellList="spellList" />
   <h3 v-else>{{noSpellsFound ? "No spells found" : "Search for a spell!"}}</h3>
   <button class="scrollTop">
